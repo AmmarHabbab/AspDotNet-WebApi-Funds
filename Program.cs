@@ -2,7 +2,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => {
+    //option.InputFormatters.Add(formatters => ) u know and the defualt is the first one in list is always the default
+    //option.OutputFormatters.Add(formatters => ) u know and the defualt is the first one in list is always the default
+    options.ReturnHttpNotAcceptable = true; // 406 not acceptable if xml for and example requiested and api only supports json
+}).AddXmlDataContractSerializerFormatters(); // supports additional dataformatters like xml
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
