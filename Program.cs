@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.StaticFiles;  
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +11,7 @@ builder.Services.AddControllers(options => {
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<FileExtensionContentTypeProvider>(); // add a service to the container so that we can inject it in other parts of our code that will be used to get the content type of a file 
 
 var app = builder.Build();
 
