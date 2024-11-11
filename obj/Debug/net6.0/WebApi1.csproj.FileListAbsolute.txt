@@ -31,3 +31,7 @@ E:\Asp\WebApi1\obj\Debug\net6.0\WebApi1.pdb
 E:\Asp\WebApi1\obj\Debug\net6.0\WebApi1.genruntimeconfig.cache
 E:\Asp\WebApi1\obj\Debug\net6.0\ref\WebApi1.dll
 E:\Asp\WebApi1\obj\Debug\net6.0\WebApi1.sourcelink.json
+E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
