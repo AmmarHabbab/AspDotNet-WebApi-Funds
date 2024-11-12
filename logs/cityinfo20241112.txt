@@ -1,0 +1,55 @@
+2024-11-12 17:19:10.112 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-12 17:19:10.608 +03:00 [DBG] Hosting starting
+2024-11-12 17:19:10.739 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 9E758B43FC1DB07235D03E669781821F9B436A79)
+2024-11-12 17:19:10.817 +03:00 [INF] Now listening on: https://localhost:7117
+2024-11-12 17:19:10.819 +03:00 [INF] Now listening on: http://localhost:5211
+2024-11-12 17:19:10.823 +03:00 [DBG] Loaded hosting startup assembly WebApi1
+2024-11-12 17:19:10.828 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-12 17:19:10.831 +03:00 [INF] Hosting environment: Development
+2024-11-12 17:19:10.833 +03:00 [INF] Content root path: E:\Asp\WebApi1\
+2024-11-12 17:19:10.836 +03:00 [DBG] Hosting started
+2024-11-12 17:19:34.410 +03:00 [DBG] Connection id "0HN834K44GANR" received FIN.
+2024-11-12 17:19:34.482 +03:00 [DBG] Connection id "0HN834K44GANR" accepted.
+2024-11-12 17:19:34.490 +03:00 [DBG] Connection id "0HN834K44GANS" accepted.
+2024-11-12 17:19:34.491 +03:00 [DBG] Connection id "0HN834K44GANR" started.
+2024-11-12 17:19:34.494 +03:00 [DBG] Connection id "0HN834K44GANS" started.
+2024-11-12 17:19:34.527 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-12 17:19:34.625 +03:00 [DBG] Connection 0HN834K44GANS established using the following protocol: "Tls12"
+2024-11-12 17:19:34.745 +03:00 [DBG] Connection id "0HN834K44GANR" stopped.
+2024-11-12 17:19:34.747 +03:00 [DBG] Connection id "0HN834K44GANR" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-12 17:19:34.841 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7117/api/cities/4/pointsofinterest - -
+2024-11-12 17:19:34.844 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-12 17:19:34.922 +03:00 [DBG] The request path  does not match the path filter
+2024-11-12 17:19:34.989 +03:00 [DBG] 1 candidate(s) found for the request path '/api/cities/4/pointsofinterest'
+2024-11-12 17:19:34.999 +03:00 [DBG] Endpoint 'WebApi1.Controllers.PointsOfInterestController.GetPointsOfInterest (WebApi1)' with route pattern 'api/cities/{cityId}/pointsofinterest' is valid for the request path '/api/cities/4/pointsofinterest'
+2024-11-12 17:19:35.006 +03:00 [DBG] Request matched endpoint 'WebApi1.Controllers.PointsOfInterestController.GetPointsOfInterest (WebApi1)'
+2024-11-12 17:19:35.013 +03:00 [INF] Executing endpoint 'WebApi1.Controllers.PointsOfInterestController.GetPointsOfInterest (WebApi1)'
+2024-11-12 17:19:35.069 +03:00 [INF] Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[WebApi1.Models.PointOfInterestDto] GetPointsOfInterest(Int32) on controller WebApi1.Controllers.PointsOfInterestController (WebApi1).
+2024-11-12 17:19:35.080 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-12 17:19:35.084 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-12 17:19:35.102 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-12 17:19:35.109 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-12 17:19:35.111 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-12 17:19:35.119 +03:00 [DBG] Executing controller factory for controller WebApi1.Controllers.PointsOfInterestController (WebApi1)
+2024-11-12 17:19:35.125 +03:00 [DBG] Executed controller factory for controller WebApi1.Controllers.PointsOfInterestController (WebApi1)
+2024-11-12 17:19:35.135 +03:00 [DBG] Attempting to bind parameter 'cityId' of type 'System.Int32' ...
+2024-11-12 17:19:35.143 +03:00 [DBG] Attempting to bind parameter 'cityId' of type 'System.Int32' using the name 'cityId' in request data ...
+2024-11-12 17:19:35.146 +03:00 [DBG] Done attempting to bind parameter 'cityId' of type 'System.Int32'.
+2024-11-12 17:19:35.149 +03:00 [DBG] Done attempting to bind parameter 'cityId' of type 'System.Int32'.
+2024-11-12 17:19:35.150 +03:00 [DBG] Attempting to validate the bound parameter 'cityId' of type 'System.Int32' ...
+2024-11-12 17:19:35.159 +03:00 [DBG] Done attempting to validate the bound parameter 'cityId' of type 'System.Int32'.
+2024-11-12 17:19:35.165 +03:00 [FTL] Exception while getting points of interest for city with id 4.
+2024-11-12 17:19:35.168 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.XmlDataContractSerializerOutputFormatter"]
+2024-11-12 17:19:35.180 +03:00 [DBG] No information found on request to perform content negotiation.
+2024-11-12 17:19:35.182 +03:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-12 17:19:35.184 +03:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-12 17:19:35.191 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2024-11-12 17:19:35.193 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-11-12 17:19:35.215 +03:00 [INF] Executed action WebApi1.Controllers.PointsOfInterestController.GetPointsOfInterest (WebApi1) in 82.8355ms
+2024-11-12 17:19:35.240 +03:00 [INF] Executed endpoint 'WebApi1.Controllers.PointsOfInterestController.GetPointsOfInterest (WebApi1)'
+2024-11-12 17:19:35.244 +03:00 [DBG] Connection id "0HN834K44GANS" completed keep alive response.
+2024-11-12 17:19:35.249 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7117/api/cities/4/pointsofinterest - - - 500 - text/plain;+charset=utf-8 429.8230ms
