@@ -53,3 +53,9 @@ System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport
 2024-11-12 17:19:35.240 +03:00 [INF] Executed endpoint 'WebApi1.Controllers.PointsOfInterestController.GetPointsOfInterest (WebApi1)'
 2024-11-12 17:19:35.244 +03:00 [DBG] Connection id "0HN834K44GANS" completed keep alive response.
 2024-11-12 17:19:35.249 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7117/api/cities/4/pointsofinterest - - - 500 - text/plain;+charset=utf-8 429.8230ms
+2024-11-12 17:21:46.323 +03:00 [DBG] Connection id "0HN834K44GANS" disconnecting.
+2024-11-12 17:21:46.341 +03:00 [DBG] Connection id "0HN834K44GANS" stopped.
+2024-11-12 17:21:46.350 +03:00 [DBG] Connection id "0HN834K44GANS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-12 17:38:50.421 +03:00 [INF] Application is shutting down...
+2024-11-12 17:38:50.424 +03:00 [DBG] Hosting stopping
+2024-11-12 17:38:50.434 +03:00 [DBG] Hosting stopped

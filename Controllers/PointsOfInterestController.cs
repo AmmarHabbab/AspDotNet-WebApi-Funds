@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using WebApi1.Models;
+using WebApi1.Services;
 
 namespace WebApi1.Controllers{
     [Route("api/cities/{cityId}/pointsofinterest")]
@@ -9,10 +10,12 @@ public class PointsOfInterestController : ControllerBase
 {
   // this is called constracter injection which is the preffered way of requesting dependencies
   private readonly ILogger<PointsOfInterestController> _logger;
+  private readonly LocalMailService _mailService;
 
-  public PointsOfInterestController(ILogger<PointsOfInterestController> logger)
+  public PointsOfInterestController(ILogger<PointsOfInterestController> logger,LocalMailService mailService)
   {
     _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    _mailService = mailService ?? throw new ArgumentNullException(nameof(mailService));
     // for cases that is not feasable u can request a service from the container directly HttpContext.RequestServices.GetService() however its advised to use costructer injection when possible
     
   }
@@ -181,6 +184,8 @@ if(PointOfInterest == null)
           }
 
           city.PointsOfInterest.Remove(pointOfInterestFromStore);
+          _mailService.Send("Point of Interest Deleted.",
+          $"Point Of Interest {pointOfInterestFromStore.Name} with Id {pointOfInterestFromStore.Id} was deleted!");
           return NoContent();
 }
 

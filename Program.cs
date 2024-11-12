@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.StaticFiles;  
 using Serilog;
+using WebApi1.Services;
 
 Log.Logger = new LoggerConfiguration() // configuring serilog
    .MinimumLevel.Debug()
@@ -24,6 +25,8 @@ builder.Services.AddControllers(options => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>(); // add a service to the container so that we can inject it in other parts of our code that will be used to get the content type of a file 
+
+builder.Services.AddTransient<LocalMailService>();
 
 var app = builder.Build();
 
