@@ -565,3 +565,6 @@ System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport
 2024-11-12 18:46:59.305 +03:00 [DBG] Connection id "0HN8363NTKS9S" disconnecting.
 2024-11-12 18:46:59.308 +03:00 [DBG] Connection id "0HN8363NTKS9S" stopped.
 2024-11-12 18:46:59.312 +03:00 [DBG] Connection id "0HN8363NTKS9S" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-12 20:01:07.468 +03:00 [INF] Application is shutting down...
+2024-11-12 20:01:07.472 +03:00 [DBG] Hosting stopping
+2024-11-12 20:01:07.482 +03:00 [DBG] Hosting stopped

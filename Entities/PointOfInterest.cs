@@ -11,13 +11,13 @@ public class PointOfInterest
 
     [Required]
     [MaxLength(50)]
-    public string Name {get; set;};
+    public string Name {get; set;}
 
     [ForeignKey("CityId")]
 
-    public City? City{get;set;};
+    public City? City{get;set;}
 
-    public int cityId {get;set;};
+    public int cityId {get;set;}
 
     public PointOfInterest(string name)
     {
