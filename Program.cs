@@ -38,8 +38,8 @@ builder.Services.AddTransient<IMailService,CloudMailService>();
 
 builder.Services.AddSingleton<CitiesDataStore>();
 
-builder.Services.AddDbContext<CityInfoContext>(DbContextOptions=>DbContextOptions.UseSqlite("Data Source=CityInfo.db"));
-
+builder.Services.AddDbContext<CityInfoContext>(DbContextOptions=>DbContextOptions.UseSqlite(builder.Configuration["ConnectionStrings:CityInfoDBConnectionString"]));
+// for a production envronment we will environment varialbe to store data that which exists in windows or u can use azure 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
