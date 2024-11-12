@@ -10,12 +10,14 @@ public class PointsOfInterestController : ControllerBase
 {
   // this is called constracter injection which is the preffered way of requesting dependencies
   private readonly ILogger<PointsOfInterestController> _logger;
-  private readonly LocalMailService _mailService;
+  private readonly IMailService _mailService;
+  private readonly CitiesDataStore _citiesDataStore;
 
-  public PointsOfInterestController(ILogger<PointsOfInterestController> logger,LocalMailService mailService)
+  public PointsOfInterestController(ILogger<PointsOfInterestController> logger,IMailService mailService,CitiesDataStore citiesDataStore)
   {
     _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     _mailService = mailService ?? throw new ArgumentNullException(nameof(mailService));
+    _citiesDataStore = citiesDataStore ?? throw new ArgumentNullException(nameof(citiesDataStore));
     // for cases that is not feasable u can request a service from the container directly HttpContext.RequestServices.GetService() however its advised to use costructer injection when possible
     
   }
@@ -27,7 +29,7 @@ public class PointsOfInterestController : ControllerBase
       try
       {
        // throw new Exception("Exception Sample.");
-        var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+        var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
 
         if(city == null)
         {
@@ -49,7 +51,7 @@ public class PointsOfInterestController : ControllerBase
     [HttpGet("{pointofinterestid}",Name = "GetPointOfInterest")]
     public ActionResult<IEnumerable<PointOfInterestDto>> GetPointOfInterest(int cityId, int pointofinterestid)
     {
-        var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+        var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
 
         if(city == null)
         {
@@ -73,13 +75,13 @@ if(PointOfInterest == null)
             return BadRequest();
         }
 
-          var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+          var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
           if(city == null)
         {
             return NotFound();
         }
 
-        var maxPointOfInterestId = CitiesDataStore.Current.Cities.SelectMany(c => c.PointsOfInterest).Max(p=> p.Id);
+        var maxPointOfInterestId =_citiesDataStore.Cities.SelectMany(c => c.PointsOfInterest).Max(p=> p.Id);
 
         var finalPointOfInterest = new PointOfInterestDto()
         {
@@ -105,7 +107,7 @@ if(PointOfInterest == null)
             return BadRequest();
         }
 
-          var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+          var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
           if(city == null)
         {
             return NotFound();
@@ -129,7 +131,7 @@ if(PointOfInterest == null)
     [HttpPatch("{pointofinterestid}")]
     public ActionResult PartiallyUpdatePointOfInterest(int cityId,int pointOfInterestId,JsonPatchDocument <PointOfInterestForUpdateDto> patchDocument)
     {
-       var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+       var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
           if(city == null)
         {
             return NotFound();
@@ -170,7 +172,7 @@ if(PointOfInterest == null)
     [HttpDelete("{pointofinterestid}")]
     public ActionResult DeletePointOfInterest(int cityId,int pointOfInterestId)
     {
-       var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+       var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
           if(city == null)
         {
             return NotFound();
