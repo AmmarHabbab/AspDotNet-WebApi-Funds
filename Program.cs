@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.StaticFiles;
 using Serilog;
 using WebApi1.Services;
 using WebApi1;
+using WebApi1.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 Log.Logger = new LoggerConfiguration() // configuring serilog
    .MinimumLevel.Debug()
@@ -35,6 +37,8 @@ builder.Services.AddTransient<IMailService,CloudMailService>();
 #endif
 
 builder.Services.AddSingleton<CitiesDataStore>();
+
+builder.Services.AddDbContext<CityInfoContext>(DbContextOptions=>DbContextOptions.UseSqlite("Data Source=CityInfo.db"));
 
 var app = builder.Build();
 
