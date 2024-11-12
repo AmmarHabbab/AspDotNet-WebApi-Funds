@@ -7,6 +7,17 @@ namespace WebApi1.Controllers{
     [ApiController]
 public class PointsOfInterestController : ControllerBase
 {
+  // this is called constracter injection which is the preffered way of requesting dependencies
+  private readonly ILogger<PointsOfInterestController> _logger;
+
+  public PointsOfInterestController(ILogger<PointsOfInterestController> logger)
+  {
+    _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    // for cases that is not feasable u can request a service from the container directly HttpContext.RequestServices.GetService() however its advised to use costructer injection when possible
+    
+  }
+
+
     [HttpGet]
     public ActionResult<PointOfInterestDto> GetPointsOfInterest(int cityId)
     {
@@ -14,6 +25,7 @@ public class PointsOfInterestController : ControllerBase
 
         if(city == null)
         {
+          _logger.LogInformation($"City with id {cityId} wasnt found when accessing points of interest");
             return NotFound();
         }
 
@@ -140,7 +152,26 @@ if(PointOfInterest == null)
           return NoContent();
 
     }
+
+    [HttpDelete("{pointofinterestid}")]
+    public ActionResult DeletePointOfInterest(int cityId,int pointOfInterestId)
+    {
+       var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+          if(city == null)
+        {
+            return NotFound();
+        }
+
+        var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
+
+          if(pointOfInterestFromStore == null)
+          {
+            return NotFound();
+          }
+
+          city.PointsOfInterest.Remove(pointOfInterestFromStore);
+          return NoContent();
 }
 
-
+}
 }
