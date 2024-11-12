@@ -21,6 +21,9 @@ public class PointsOfInterestController : ControllerBase
     [HttpGet]
     public ActionResult<PointOfInterestDto> GetPointsOfInterest(int cityId)
     {
+      try
+      {
+        throw new Exception("Exception Sample.");
         var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
 
         if(city == null)
@@ -30,6 +33,14 @@ public class PointsOfInterestController : ControllerBase
         }
 
         return Ok(city.PointsOfInterest);
+      }
+      catch (Exception ex) //System.Exception
+      {
+        _logger.LogCritical($"Exception while getting points of interest for city with id {cityId}.",ex);
+        return StatusCode(500,"A Problem happened while hanlding your request!");
+       // throw;
+      }
+        
     }
 
     [HttpGet("{pointofinterestid}",Name = "GetPointOfInterest")]
