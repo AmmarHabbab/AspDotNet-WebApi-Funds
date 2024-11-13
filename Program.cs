@@ -43,6 +43,8 @@ builder.Services.AddDbContext<CityInfoContext>(DbContextOptions=>DbContextOption
 
 builder.Services.AddScoped<ICityInfoRepository,CityInforepository>();// addscoped gets it created once per request and it works pretty well with reposirty pattern
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

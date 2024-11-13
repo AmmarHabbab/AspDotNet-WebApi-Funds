@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebApi1.Models;
+using WebApi1.Services;
 
 namespace WebApi1.Controllers{
 
@@ -7,14 +9,25 @@ namespace WebApi1.Controllers{
 [Route("api/cities")] //api/[controller]
 public class CitiesController : ControllerBase
 {
-    private readonly CitiesDataStore _citiesDataStore;
-    public CitiesController(CitiesDataStore citiesDataStore)
-    {
-      _citiesDataStore = citiesDataStore ?? throw new ArgumentNullException(nameof(citiesDataStore));
-    }
+        private readonly ICityInfoRepository _cityInfoRepository;
+        private readonly IMapper _mapper;
 
-   // [HttpGet("api/cities")]
-    public ActionResult<IEnumerable<CityDto>> GetCities() //public JsonResult GetCities()
+        public CitiesController(ICityInfoRepository cityInfoRepository,IMapper mapper)
+    {
+            _cityInfoRepository = cityInfoRepository ?? throw new ArgumentNullException(nameof(cityInfoRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+
+        public IMapper Mapper { get; }
+
+        // private readonly CitiesDataStore _citiesDataStore;
+        // public CitiesController(CitiesDataStore citiesDataStore)
+        // {
+        //   _citiesDataStore = citiesDataStore ?? throw new ArgumentNullException(nameof(citiesDataStore));
+        // }
+
+        // [HttpGet("api/cities")]
+        public async Task<ActionResult<IEnumerable<CityWithoutPointOfInterestDto>>> GetCities() //public JsonResult GetCities()
     {
         // return new JsonResult(new List<object>{
         //     new {id=1,Name="New York City"},
@@ -23,28 +36,42 @@ public class CitiesController : ControllerBase
 
       //  return new JsonResult(CitiesDataStore.Current.Cities);
 
-      return Ok(_citiesDataStore.Cities);
+      //return Ok(_citiesDataStore.Cities);
+
+      var cityEntites = await _cityInfoRepository.GetCitiesAsync();
+
+      var results = new List<CityWithoutPointOfInterestDto>();
+      foreach(var cityEntity in cityEntites)
+      {
+        results.Add(new CityWithoutPointOfInterestDto{
+          Id = cityEntity.Id,
+          Name = cityEntity.Name,
+          Description = cityEntity.Description
+        });
+      }
+
+      return Ok(results);
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<CityDto> GetCity(int id) // public JsonResult GetCity(int id)
-    {
-        // return new JsonResult(new List<object>{
-        //     new {id=1,Name="New York City"},
-        //     new {id=2,Name="Antwerp"},
-        // });
+   // [HttpGet("{id}")]
+//     public ActionResult<CityDto> GetCity(int id) // public JsonResult GetCity(int id)
+//     {
+//         // return new JsonResult(new List<object>{
+//         //     new {id=1,Name="New York City"},
+//         //     new {id=2,Name="Antwerp"},
+//         // });
 
-       // return new JsonResult(CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id));
+//        // return new JsonResult(CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id));
 
-       var cityToReturn = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
+//        var cityToReturn = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
 
-       if(cityToReturn == null)
-       {
-        return NotFound();
-       }
+//        if(cityToReturn == null)
+//        {
+//         return NotFound();
+//        }
 
-       return Ok(cityToReturn);
-    }
-}
+//        return Ok(cityToReturn);
+//     }
+ }
 
 }

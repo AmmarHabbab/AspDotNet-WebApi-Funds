@@ -55,6 +55,14 @@
               "target": "Package",
               "version": "[6.5.0, )"
             },
+            "automapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "automapper.extensions.microsoft.dependencyinjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "microsoft.aspnetcore.jsonpatch": {
               "target": "Package",
               "version": "[6.0.1, )"

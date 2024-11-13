@@ -1189,3 +1189,67 @@ VALUES ('20241112223904_DataSeed', '6.0.0');
 2024-11-13 01:39:20.107 +03:00 [DBG] Closing connection to database 'main' on server 'E:\Asp\WebApi1\CityInfo.db'.
 2024-11-13 01:39:20.110 +03:00 [DBG] Closed connection to database 'main' on server 'CityInfo.db'.
 2024-11-13 01:39:20.115 +03:00 [DBG] 'CityInfoContext' disposed.
+2024-11-13 15:58:54.725 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-13 15:58:55.341 +03:00 [DBG] Hosting starting
+2024-11-13 15:58:55.900 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 9E758B43FC1DB07235D03E669781821F9B436A79)
+2024-11-13 15:58:55.979 +03:00 [INF] Now listening on: https://localhost:7117
+2024-11-13 15:58:55.982 +03:00 [INF] Now listening on: http://localhost:5211
+2024-11-13 15:58:55.985 +03:00 [DBG] Loaded hosting startup assembly WebApi1
+2024-11-13 15:58:55.987 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-13 15:58:55.991 +03:00 [INF] Hosting environment: Development
+2024-11-13 15:58:55.993 +03:00 [INF] Content root path: E:\Asp\WebApi1\
+2024-11-13 15:58:55.996 +03:00 [DBG] Hosting started
+2024-11-13 15:59:06.361 +03:00 [DBG] Connection id "0HN83SBQF8EQA" received FIN.
+2024-11-13 15:59:06.398 +03:00 [DBG] Connection id "0HN83SBQF8EQA" accepted.
+2024-11-13 15:59:06.401 +03:00 [DBG] Connection id "0HN83SBQF8EQA" started.
+2024-11-13 15:59:06.403 +03:00 [DBG] Connection id "0HN83SBQF8EQB" accepted.
+2024-11-13 15:59:06.405 +03:00 [DBG] Connection id "0HN83SBQF8EQB" started.
+2024-11-13 15:59:06.452 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-13 15:59:06.583 +03:00 [DBG] Connection 0HN83SBQF8EQB established using the following protocol: "Tls12"
+2024-11-13 15:59:06.636 +03:00 [DBG] Connection id "0HN83SBQF8EQA" stopped.
+2024-11-13 15:59:06.638 +03:00 [DBG] Connection id "0HN83SBQF8EQA" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-13 15:59:06.837 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7117/api/cities - -
+2024-11-13 15:59:06.842 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-13 15:59:07.013 +03:00 [DBG] The request path  does not match the path filter
+2024-11-13 15:59:07.133 +03:00 [DBG] 1 candidate(s) found for the request path '/api/cities'
+2024-11-13 15:59:07.267 +03:00 [DBG] Endpoint 'WebApi1.Controllers.CitiesController.GetCities (WebApi1)' with route pattern 'api/cities' is valid for the request path '/api/cities'
+2024-11-13 15:59:07.273 +03:00 [DBG] Request matched endpoint 'WebApi1.Controllers.CitiesController.GetCities (WebApi1)'
+2024-11-13 15:59:07.297 +03:00 [INF] Executing endpoint 'WebApi1.Controllers.CitiesController.GetCities (WebApi1)'
+2024-11-13 15:59:07.447 +03:00 [INF] Route matched with {action = "GetCities", controller = "Cities"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[WebApi1.Models.CityWithoutPointOfInterestDto]]] GetCities() on controller WebApi1.Controllers.CitiesController (WebApi1).
+2024-11-13 15:59:07.452 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-13 15:59:07.454 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-13 15:59:07.457 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-13 15:59:07.462 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-13 15:59:07.465 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-13 15:59:07.470 +03:00 [DBG] Executing controller factory for controller WebApi1.Controllers.CitiesController (WebApi1)
+2024-11-13 15:59:07.487 +03:00 [INF] Executed action WebApi1.Controllers.CitiesController.GetCities (WebApi1) in 11.6303ms
+2024-11-13 15:59:07.509 +03:00 [INF] Executed endpoint 'WebApi1.Controllers.CitiesController.GetCities (WebApi1)'
+2024-11-13 15:59:07.517 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'WebApi1.Services.CityInforepository' while attempting to activate 'WebApi1.Controllers.CitiesController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-11-13 15:59:07.713 +03:00 [DBG] Connection id "0HN83SBQF8EQB" completed keep alive response.
+2024-11-13 15:59:07.716 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7117/api/cities - - - 500 - text/plain;+charset=utf-8 885.4942ms
+2024-11-13 16:01:18.222 +03:00 [DBG] Connection id "0HN83SBQF8EQB" disconnecting.
+2024-11-13 16:01:18.225 +03:00 [DBG] Connection id "0HN83SBQF8EQB" stopped.
+2024-11-13 16:01:18.227 +03:00 [DBG] Connection id "0HN83SBQF8EQB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-13 16:03:12.706 +03:00 [INF] Application is shutting down...
+2024-11-13 16:03:12.708 +03:00 [DBG] Hosting stopping
+2024-11-13 16:03:12.717 +03:00 [DBG] Hosting stopped
