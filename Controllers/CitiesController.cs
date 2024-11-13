@@ -55,25 +55,37 @@ public class CitiesController : ControllerBase
      return Ok(_mapper.Map<IEnumerable<CityWithoutPointOfInterestDto>>(cityEntites));// automapper is much better than mapping ourselves like above
     }
 
-   // [HttpGet("{id}")]
-//     public ActionResult<CityDto> GetCity(int id) // public JsonResult GetCity(int id)
-//     {
-//         // return new JsonResult(new List<object>{
-//         //     new {id=1,Name="New York City"},
-//         //     new {id=2,Name="Antwerp"},
-//         // });
+   [HttpGet("{id}")]
+    public async Task<IActionResult> GetCity(int id,bool includePointsOfInterest = false) // public JsonResult GetCity(int id)
+    {
+        // return new JsonResult(new List<object>{
+        //     new {id=1,Name="New York City"},
+        //     new {id=2,Name="Antwerp"},
+        // });
 
-//        // return new JsonResult(CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id));
+       // return new JsonResult(CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id));
 
-//        var cityToReturn = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
+      //  var cityToReturn = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
 
-//        if(cityToReturn == null)
-//        {
-//         return NotFound();
-//        }
+      //  if(cityToReturn == null)
+      //  {
+      //   return NotFound();
+      //  }
 
-//        return Ok(cityToReturn);
-//     }
+      // return Ok(cityToReturn);
+
+      var city = await _cityInfoRepository.GetCityAsync(id,includePointsOfInterest);
+      if(city == null)
+      {
+        return NotFound();
+      }
+
+      if(includePointsOfInterest)
+      {
+        return Ok(_mapper.Map<CityDto>(city));
+      }
+      return Ok(_mapper.Map<CityWithoutPointOfInterestDto>(city));
+    }
  }
 
 }
