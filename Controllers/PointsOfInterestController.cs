@@ -147,75 +147,90 @@ if(!await _cityInfoRepository.CityExistsAsync(cityId))
         CreatedPointOfInterestToReturn);
     }
 
-//     [HttpPut("{pointOfInterestId}")]
-//      public ActionResult UpdatePointOfInterest(int cityId,int pointOfInterestId,PointOfInterestForUpdateDto pointOfInterest)
-//     {
-//         if(!ModelState.IsValid)
-//         {
-//             return BadRequest();
-//         }
+    [HttpPut("{pointOfInterestId}")]
+     public async Task<ActionResult> UpdatePointOfInterest(int cityId,int pointOfInterestId,PointOfInterestForUpdateDto pointOfInterest)
+    {
+        // if(!ModelState.IsValid)
+        // {
+        //     return BadRequest();
+        // }
 
-//           var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
-//           if(city == null)
-//         {
-//             return NotFound();
-//         }
+        //   var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
+        //   if(city == null)
+        // {
+        //     return NotFound();
+        // }
 
-//           var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
+        //   var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
 
-//           if(pointOfInterestFromStore == null)
-//           {
-//             return NotFound();
-//           }
+        //   if(pointOfInterestFromStore == null)
+        //   {
+        //     return NotFound();
+        //   }
 
-//           pointOfInterestFromStore.Name = pointOfInterest.Name;
-//           pointOfInterestFromStore.Description = pointOfInterest.Description;
+        //   pointOfInterestFromStore.Name = pointOfInterest.Name;
+        //   pointOfInterestFromStore.Description = pointOfInterest.Description;
 
-//           return NoContent();
+        //   return NoContent();
 
-      
-//     }
+ if(!await _cityInfoRepository.CityExistsAsync(cityId))
+        {
+          return NotFound();
+        }
 
-//     [HttpPatch("{pointofinterestid}")]
-//     public ActionResult PartiallyUpdatePointOfInterest(int cityId,int pointOfInterestId,JsonPatchDocument <PointOfInterestForUpdateDto> patchDocument)
-//     {
-//        var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
-//           if(city == null)
-//         {
-//             return NotFound();
-//         }
+        var pointOfInterestEntity = await _cityInfoRepository.GetPointOfInterestForCityAsync(cityId,pointOfInterestId);
+        if(pointOfInterestEntity == null)
+        {
+          return NotFound();
+        }
 
-//         var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
+        _mapper.Map(pointOfInterest,pointOfInterestEntity);
 
-//           if(pointOfInterestFromStore == null)
-//           {
-//             return NotFound();
-//           }
+        await _cityInfoRepository.SaveChangesAsync();
 
-//            var pointOfInterestToPatch = new PointOfInterestForUpdateDto()
-//            {
-//             Name = pointOfInterestFromStore.Name,
-//             Description = pointOfInterestFromStore.Description
-//            };
+        return NoContent();      
+    }
 
-//           patchDocument.ApplyTo(pointOfInterestToPatch,ModelState);
+    [HttpPatch("{pointofinterestid}")]
+    public async Task<ActionResult> PartiallyUpdatePointOfInterest(int cityId,int pointOfInterestId,JsonPatchDocument <PointOfInterestForUpdateDto> patchDocument)
+    {
+       var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
+          if(city == null)
+        {
+            return NotFound();
+        }
 
-//           if(!ModelState.IsValid)
-//           {
-//             return BadRequest();
-//           }
+        var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
 
-//           if(!TryValidateModel(pointOfInterestToPatch))
-//           {
-//             return BadRequest(ModelState);
-//           }
+          if(pointOfInterestFromStore == null)
+          {
+            return NotFound();
+          }
 
-//           pointOfInterestFromStore.Name = pointOfInterestToPatch.Name;
-//           pointOfInterestFromStore.Description = pointOfInterestToPatch.Description;
+           var pointOfInterestToPatch = new PointOfInterestForUpdateDto()
+           {
+            Name = pointOfInterestFromStore.Name,
+            Description = pointOfInterestFromStore.Description
+           };
 
-//           return NoContent();
+          patchDocument.ApplyTo(pointOfInterestToPatch,ModelState);
 
-//     }
+          if(!ModelState.IsValid)
+          {
+            return BadRequest();
+          }
+
+          if(!TryValidateModel(pointOfInterestToPatch))
+          {
+            return BadRequest(ModelState);
+          }
+
+          pointOfInterestFromStore.Name = pointOfInterestToPatch.Name;
+          pointOfInterestFromStore.Description = pointOfInterestToPatch.Description;
+
+          return NoContent();
+
+    }
 
 //     [HttpDelete("{pointofinterestid}")]
 //     public ActionResult DeletePointOfInterest(int cityId,int pointOfInterestId)

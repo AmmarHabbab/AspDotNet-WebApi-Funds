@@ -18,7 +18,7 @@ public class CitiesController : ControllerBase
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public IMapper Mapper { get; }
+        
 
         // private readonly CitiesDataStore _citiesDataStore;
         // public CitiesController(CitiesDataStore citiesDataStore)
