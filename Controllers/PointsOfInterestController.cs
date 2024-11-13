@@ -96,37 +96,56 @@ if(!await _cityInfoRepository.CityExistsAsync(cityId))
       return Ok(_mapper.Map<PointOfInterestDto>(pointOfInterest));
     }
 
-//     [HttpPost]
-//      public ActionResult<PointOfInterestDto> CreatePointOfInterest(int cityId,PointOfInterestForCreationDto pointOfInterest)
-//     {
-//         if(!ModelState.IsValid)
-//         {
-//             return BadRequest();
-//         }
+    [HttpPost]
+     public async Task<ActionResult<PointOfInterestDto>> CreatePointOfInterest(int cityId,PointOfInterestForCreationDto pointOfInterest)
+    {
+        // if(!ModelState.IsValid)
+        // {
+        //     return BadRequest();
+        // }
 
-//           var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
-//           if(city == null)
-//         {
-//             return NotFound();
-//         }
+        //   var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == cityId);
+        //   if(city == null)
+        // {
+        //     return NotFound();
+        // }
 
-//         var maxPointOfInterestId =_citiesDataStore.Cities.SelectMany(c => c.PointsOfInterest).Max(p=> p.Id);
+        // var maxPointOfInterestId =_citiesDataStore.Cities.SelectMany(c => c.PointsOfInterest).Max(p=> p.Id);
 
-//         var finalPointOfInterest = new PointOfInterestDto()
-//         {
-//             Id = ++maxPointOfInterestId,
-//             Name = pointOfInterest.Name,
-//             Description = pointOfInterest.Description
-//         };
+        // var finalPointOfInterest = new PointOfInterestDto()
+        // {
+        //     Id = ++maxPointOfInterestId,
+        //     Name = pointOfInterest.Name,
+        //     Description = pointOfInterest.Description
+        // };
 
-//         city.PointsOfInterest.Add(finalPointOfInterest);
+        // city.PointsOfInterest.Add(finalPointOfInterest);
 
-//         return CreatedAtRoute("GetPointOfInterest",new {
-//             cityId = cityId,
-//             pointOfInterestid = finalPointOfInterest.Id,
-//         },
-//         finalPointOfInterest);
-//     }
+        // return CreatedAtRoute("GetPointOfInterest",new {
+        //     cityId = cityId,
+        //     pointOfInterestid = finalPointOfInterest.Id,
+        // },
+        // finalPointOfInterest);
+
+        if(!await _cityInfoRepository.CityExistsAsync(cityId))
+        {
+          return NotFound();
+        }
+
+        var finalPointOfInterest = _mapper.Map<Entities.PointOfInterest>(pointOfInterest);
+
+        await _cityInfoRepository.AddPointOfInterestForCityAsync(cityId,finalPointOfInterest);
+
+        await _cityInfoRepository.SaveChangesAsync();
+
+        var CreatedPointOfInterestToReturn =  _mapper.Map<Models.PointOfInterestDto>(finalPointOfInterest);
+
+        return CreatedAtRoute("GetPointOfInterest",new {
+            cityId = cityId,
+            pointOfInterestid = CreatedPointOfInterestToReturn.Id,
+        },
+        CreatedPointOfInterestToReturn);
+    }
 
 //     [HttpPut("{pointOfInterestId}")]
 //      public ActionResult UpdatePointOfInterest(int cityId,int pointOfInterestId,PointOfInterestForUpdateDto pointOfInterest)

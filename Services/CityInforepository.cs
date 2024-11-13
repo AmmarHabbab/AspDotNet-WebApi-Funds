@@ -13,6 +13,15 @@ public class CityInforepository : ICityInfoRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
+    public async Task AddPointOfInterestForCityAsync(int cityId, PointOfInterest pointsOfInterest)
+    {
+        var city = await GetCityAsync(cityId,false);
+        if(city != null)
+        {
+            city.PointsOfInterest.Add(pointsOfInterest);
+        }
+    }
+
     public async Task<bool> CityExistsAsync(int cityId)
     {
         return await _context.Cities.AnyAsync(c => c.Id == cityId);
@@ -40,5 +49,10 @@ public class CityInforepository : ICityInfoRepository
     public async Task<IEnumerable<PointOfInterest>> GetPointsOfInterestForCityAsync(int cityId)
     {
         return await _context.PointOfInterest.Where(p => p.cityId == cityId).ToListAsync();
+    }
+
+    public async Task<bool> SaveChangesAsync()
+    {
+        return (await _context.SaveChangesAsync()>=0);
     }
 }
