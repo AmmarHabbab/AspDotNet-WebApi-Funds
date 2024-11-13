@@ -40,17 +40,19 @@ public class CitiesController : ControllerBase
 
       var cityEntites = await _cityInfoRepository.GetCitiesAsync();
 
-      var results = new List<CityWithoutPointOfInterestDto>();
-      foreach(var cityEntity in cityEntites)
-      {
-        results.Add(new CityWithoutPointOfInterestDto{
-          Id = cityEntity.Id,
-          Name = cityEntity.Name,
-          Description = cityEntity.Description
-        });
-      }
+      // var results = new List<CityWithoutPointOfInterestDto>();
+      // foreach(var cityEntity in cityEntites)
+      // {
+      //   results.Add(new CityWithoutPointOfInterestDto{
+      //     Id = cityEntity.Id,
+      //     Name = cityEntity.Name,
+      //     Description = cityEntity.Description
+      //   });
+      // }
 
-      return Ok(results);
+     // return Ok(results);
+
+     return Ok(_mapper.Map<IEnumerable<CityWithoutPointOfInterestDto>>(cityEntites));// automapper is much better than mapping ourselves like above
     }
 
    // [HttpGet("{id}")]
