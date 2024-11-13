@@ -40,6 +40,9 @@ builder.Services.AddSingleton<CitiesDataStore>();
 
 builder.Services.AddDbContext<CityInfoContext>(DbContextOptions=>DbContextOptions.UseSqlite(builder.Configuration["ConnectionStrings:CityInfoDBConnectionString"]));
 // for a production envronment we will environment varialbe to store data that which exists in windows or u can use azure 
+
+builder.Services.AddScoped<ICityInfoRepository,CityInforepository>();// addscoped gets it created once per request and it works pretty well with reposirty pattern
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
