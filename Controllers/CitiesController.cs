@@ -1,5 +1,6 @@
 using System.Text.Json;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi1.Models;
 using WebApi1.Services;
@@ -7,6 +8,7 @@ using WebApi1.Services;
 namespace WebApi1.Controllers{
 
 [ApiController]
+[Authorize]
 [Route("api/cities")] //api/[controller]
 public class CitiesController : ControllerBase
 {

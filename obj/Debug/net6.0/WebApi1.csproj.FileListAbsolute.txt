@@ -77,3 +77,6 @@ E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 E:\Asp\WebApi1\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using WebApi1.Models;
@@ -7,6 +8,7 @@ using WebApi1.Services;
 namespace WebApi1.Controllers{
     [Route("api/cities/{cityId}/pointsofinterest")]
     [ApiController]
+    [Authorize] 
 public class PointsOfInterestController : ControllerBase
 {
   // this is called constracter injection which is the preffered way of requesting dependencies

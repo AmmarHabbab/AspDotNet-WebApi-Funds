@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles; 
 using System.IO;  
@@ -5,6 +6,7 @@ using System.IO;
 namespace WebApi1.Controllers{
 
 [ApiController]
+[Authorize]
 [Route("api/files")]
 public class FilesController : ControllerBase
 {

@@ -63,6 +63,10 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "microsoft.aspnetcore.authentication.jwtbearer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "microsoft.aspnetcore.jsonpatch": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -79,7 +83,7 @@
             },
             "microsoft.identitymodel.tokens": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.10.0, )"
             },
             "serilog.aspnetcore": {
               "target": "Package",
@@ -95,7 +99,7 @@
             },
             "system.identitymodel.tokens.jwt": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.10.0, )"
             }
           },
           "imports": [

@@ -2071,3 +2071,67 @@ LIMIT @__p_1 OFFSET @__p_0
 2024-11-17 21:50:43.515 +03:00 [INF] Application is shutting down...
 2024-11-17 21:50:43.517 +03:00 [DBG] Hosting stopping
 2024-11-17 21:50:43.526 +03:00 [DBG] Hosting stopped
+2024-11-17 22:07:21.728 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-17 22:07:21.930 +03:00 [DBG] Hosting starting
+2024-11-17 22:07:22.043 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 9E758B43FC1DB07235D03E669781821F9B436A79)
+2024-11-17 22:07:22.095 +03:00 [INF] Now listening on: https://localhost:7117
+2024-11-17 22:07:22.100 +03:00 [INF] Now listening on: http://localhost:5211
+2024-11-17 22:07:22.103 +03:00 [DBG] Loaded hosting startup assembly WebApi1
+2024-11-17 22:07:22.105 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-17 22:07:22.107 +03:00 [INF] Hosting environment: Development
+2024-11-17 22:07:22.108 +03:00 [INF] Content root path: E:\Asp\WebApi1\
+2024-11-17 22:07:22.109 +03:00 [DBG] Hosting started
+2024-11-17 22:07:42.707 +03:00 [DBG] Connection id "0HN877CEFJC7R" received FIN.
+2024-11-17 22:07:42.720 +03:00 [DBG] Connection id "0HN877CEFJC7R" accepted.
+2024-11-17 22:07:42.723 +03:00 [DBG] Connection id "0HN877CEFJC7R" started.
+2024-11-17 22:07:42.725 +03:00 [DBG] Connection id "0HN877CEFJC7S" accepted.
+2024-11-17 22:07:42.731 +03:00 [DBG] Connection id "0HN877CEFJC7S" started.
+2024-11-17 22:07:42.760 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-17 22:07:42.816 +03:00 [DBG] Connection id "0HN877CEFJC7R" stopped.
+2024-11-17 22:07:42.828 +03:00 [DBG] Connection id "0HN877CEFJC7R" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-17 22:07:42.860 +03:00 [DBG] Connection 0HN877CEFJC7S established using the following protocol: "Tls12"
+2024-11-17 22:07:42.948 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7117/api/authentication/authenticate application/json 114
+2024-11-17 22:07:42.951 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-17 22:07:42.976 +03:00 [DBG] POST requests are not supported
+2024-11-17 22:07:43.033 +03:00 [DBG] 1 candidate(s) found for the request path '/api/authentication/authenticate'
+2024-11-17 22:07:43.219 +03:00 [DBG] Endpoint 'WebApi1.Controllers.AuthenticationController.Authenticate (WebApi1)' with route pattern 'api/authentication/authenticate' is valid for the request path '/api/authentication/authenticate'
+2024-11-17 22:07:43.229 +03:00 [DBG] Request matched endpoint 'WebApi1.Controllers.AuthenticationController.Authenticate (WebApi1)'
+2024-11-17 22:07:43.254 +03:00 [INF] Executing endpoint 'WebApi1.Controllers.AuthenticationController.Authenticate (WebApi1)'
+2024-11-17 22:07:43.306 +03:00 [INF] Route matched with {action = "Authenticate", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Authenticate(AuthenticationRequestBody) on controller WebApi1.Controllers.AuthenticationController (WebApi1).
+2024-11-17 22:07:43.311 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-17 22:07:43.316 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-17 22:07:43.332 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-17 22:07:43.337 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-17 22:07:43.339 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-17 22:07:43.343 +03:00 [DBG] Executing controller factory for controller WebApi1.Controllers.AuthenticationController (WebApi1)
+2024-11-17 22:07:43.346 +03:00 [DBG] Executed controller factory for controller WebApi1.Controllers.AuthenticationController (WebApi1)
+2024-11-17 22:07:43.357 +03:00 [DBG] Attempting to bind parameter 'authenticationRequestBody' of type 'WebApi1.Controllers.AuthenticationController+AuthenticationRequestBody' ...
+2024-11-17 22:07:43.368 +03:00 [DBG] Attempting to bind parameter 'authenticationRequestBody' of type 'WebApi1.Controllers.AuthenticationController+AuthenticationRequestBody' using the name '' in request data ...
+2024-11-17 22:07:43.372 +03:00 [DBG] Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonPatchInputFormatter' for content type 'application/json'.
+2024-11-17 22:07:43.376 +03:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter' for content type 'application/json'.
+2024-11-17 22:07:43.454 +03:00 [DBG] Connection id "0HN877CEFJC7S", Request id "0HN877CEFJC7S:00000002": started reading request body.
+2024-11-17 22:07:43.458 +03:00 [DBG] Connection id "0HN877CEFJC7S", Request id "0HN877CEFJC7S:00000002": done reading request body.
+2024-11-17 22:07:43.817 +03:00 [DBG] Done attempting to bind parameter 'authenticationRequestBody' of type 'WebApi1.Controllers.AuthenticationController+AuthenticationRequestBody'.
+2024-11-17 22:07:43.819 +03:00 [DBG] Done attempting to bind parameter 'authenticationRequestBody' of type 'WebApi1.Controllers.AuthenticationController+AuthenticationRequestBody'.
+2024-11-17 22:07:43.821 +03:00 [DBG] Attempting to validate the bound parameter 'authenticationRequestBody' of type 'WebApi1.Controllers.AuthenticationController+AuthenticationRequestBody' ...
+2024-11-17 22:07:43.851 +03:00 [DBG] Done attempting to validate the bound parameter 'authenticationRequestBody' of type 'WebApi1.Controllers.AuthenticationController+AuthenticationRequestBody'.
+2024-11-17 22:07:45.283 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.XmlDataContractSerializerOutputFormatter"]
+2024-11-17 22:07:45.290 +03:00 [DBG] No information found on request to perform content negotiation.
+2024-11-17 22:07:45.291 +03:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-17 22:07:45.294 +03:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-17 22:07:45.298 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2024-11-17 22:07:45.302 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-11-17 22:07:45.330 +03:00 [INF] Executed action WebApi1.Controllers.AuthenticationController.Authenticate (WebApi1) in 1968.1671ms
+2024-11-17 22:07:45.334 +03:00 [INF] Executed endpoint 'WebApi1.Controllers.AuthenticationController.Authenticate (WebApi1)'
+2024-11-17 22:07:45.337 +03:00 [DBG] Connection id "0HN877CEFJC7S" completed keep alive response.
+2024-11-17 22:07:45.341 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7117/api/authentication/authenticate application/json 114 - 200 - text/plain;+charset=utf-8 2399.9890ms
+2024-11-17 22:09:57.065 +03:00 [DBG] Connection id "0HN877CEFJC7S" disconnecting.
+2024-11-17 22:09:57.219 +03:00 [DBG] Connection id "0HN877CEFJC7S" stopped.
+2024-11-17 22:09:57.486 +03:00 [DBG] Connection id "0HN877CEFJC7S" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-17 22:55:53.723 +03:00 [INF] Application is shutting down...
+2024-11-17 22:55:53.726 +03:00 [DBG] Hosting stopping
+2024-11-17 22:55:53.735 +03:00 [DBG] Hosting stopped
