@@ -9,7 +9,9 @@ namespace WebApi1.Controllers{
 
 [ApiController]
 //[Authorize]
-[Route("api/cities")] //api/[controller]
+[ApiVersion("1.0")]
+[ApiVersion("2.0")]
+[Route("api/v{version:apiVersion}/cities")] //api/[controller]
 public class CitiesController : ControllerBase
 {
         private readonly ICityInfoRepository _cityInfoRepository;
