@@ -8,7 +8,7 @@ using WebApi1.Services;
 namespace WebApi1.Controllers{
 
 [ApiController]
-[Authorize]
+//[Authorize]
 [Route("api/cities")] //api/[controller]
 public class CitiesController : ControllerBase
 {

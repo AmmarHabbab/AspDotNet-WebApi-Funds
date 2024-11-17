@@ -6,7 +6,7 @@ using System.IO;
 namespace WebApi1.Controllers{
 
 [ApiController]
-[Authorize]
+//[Authorize]
 [Route("api/files")]
 public class FilesController : ControllerBase
 {
