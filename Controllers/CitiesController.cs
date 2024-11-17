@@ -1,3 +1,4 @@
+using System.Text.Json;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebApi1.Models;
@@ -43,7 +44,7 @@ public class CitiesController : ControllerBase
         pageSize = maxCitiesPageSize;
       }
 
-      var cityEntites = await _cityInfoRepository.GetCitiesAsync(name,searchQuery,pageNumber,pageSize);
+      var (cityEntites,paginationMetadata) = await _cityInfoRepository.GetCitiesAsync(name,searchQuery,pageNumber,pageSize);
 
       // var results = new List<CityWithoutPointOfInterestDto>();
       // foreach(var cityEntity in cityEntites)
@@ -56,6 +57,8 @@ public class CitiesController : ControllerBase
       // }
 
      // return Ok(results);
+
+     Response.Headers.Add("X-Pagination",JsonSerializer.Serialize(paginationMetadata));
 
      return Ok(_mapper.Map<IEnumerable<CityWithoutPointOfInterestDto>>(cityEntites));// automapper is much better than mapping ourselves like above
     }
