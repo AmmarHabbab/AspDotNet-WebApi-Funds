@@ -77,6 +77,10 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "microsoft.identitymodel.tokens": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "serilog.aspnetcore": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -86,6 +90,10 @@
               "version": "[6.0.0, )"
             },
             "serilog.sinks.file": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "system.identitymodel.tokens.jwt": {
               "target": "Package",
               "version": "[6.0.0, )"
             }
