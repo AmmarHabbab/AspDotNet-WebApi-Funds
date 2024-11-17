@@ -7,8 +7,8 @@ using WebApi1.Services;
 
 namespace WebApi1.Controllers{
     [Route("api/cities/{cityId}/pointsofinterest")]
+    [Authorize(Policy = "MustBeFromAntwerp")] 
     [ApiController]
-    [Authorize] 
 public class PointsOfInterestController : ControllerBase
 {
   // this is called constracter injection which is the preffered way of requesting dependencies
