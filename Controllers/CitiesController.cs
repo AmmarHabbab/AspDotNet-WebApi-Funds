@@ -27,7 +27,8 @@ public class CitiesController : ControllerBase
         // }
 
         // [HttpGet("api/cities")]
-        public async Task<ActionResult<IEnumerable<CityWithoutPointOfInterestDto>>> GetCities() //public JsonResult GetCities()
+        public async Task<ActionResult<IEnumerable<CityWithoutPointOfInterestDto>>> GetCities([FromQuery] string? name) // not neccessirly [fromquery] u can also assign name property on from query attribute [FromQuery(Name = "filterorname")]
+         //public JsonResult GetCities()
     {
         // return new JsonResult(new List<object>{
         //     new {id=1,Name="New York City"},
@@ -38,7 +39,7 @@ public class CitiesController : ControllerBase
 
       //return Ok(_citiesDataStore.Cities);
 
-      var cityEntites = await _cityInfoRepository.GetCitiesAsync();
+      var cityEntites = await _cityInfoRepository.GetCitiesAsync(name);
 
       // var results = new List<CityWithoutPointOfInterestDto>();
       // foreach(var cityEntity in cityEntites)

@@ -27,9 +27,26 @@ public class CityInforepository : ICityInfoRepository
         return await _context.Cities.AnyAsync(c => c.Id == cityId);
     }
 
+    public void DeletePointOfInterest(PointOfInterest pointOfInterest)
+    {
+        _context.PointOfInterest.Remove(pointOfInterest);
+    }
+
     public async Task<IEnumerable<City>> GetCitiesAsync()
     {
         return await _context.Cities.OrderBy(c => c.Name).ToListAsync();
+    }
+
+    public async Task<IEnumerable<City>> GetCitiesAsync(string? name)
+    {
+        if(string.IsNullOrEmpty(name))
+        {
+            return await GetCitiesAsync();
+        }
+
+        name = name.Trim(); //get rid of whitespaces at start and finish
+
+        return await _context.Cities.Where(c => c.Name == name).OrderBy(c => c.Name).ToListAsync();
     }
 
     public async Task<City?> GetCityAsync(int cityId, bool includePointsOfInterest)
