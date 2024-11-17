@@ -53,6 +53,13 @@ public class PointsOfInterestController : ControllerBase
       //   return StatusCode(500,"A Problem happened while hanlding your request!");
       //  // throw;
       // }
+      var cityName = User.Claims.FirstOrDefault(c => c.Type == "city")?.Value;
+      
+      if(!await _cityInfoRepository.CityNameMatchesCityId(cityName,cityId))
+      {
+        return Forbid();
+      }
+
       if(!await _cityInfoRepository.CityExistsAsync(cityId))
       {
         _logger.LogInformation($"City with id {cityId} wasnt found when accessing points of interest");

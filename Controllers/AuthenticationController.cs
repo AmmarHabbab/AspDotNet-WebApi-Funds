@@ -83,7 +83,7 @@ namespace WebApi1.Controllers
                 userName ?? "",
                 "John",
                 "Doe",
-                "New York"
+                "Antwerp"
             );
         }
     }
