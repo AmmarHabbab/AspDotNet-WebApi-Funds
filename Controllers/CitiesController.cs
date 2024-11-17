@@ -11,13 +11,12 @@ public class CitiesController : ControllerBase
 {
         private readonly ICityInfoRepository _cityInfoRepository;
         private readonly IMapper _mapper;
-
+        const int maxCitiesPageSize = 20; 
         public CitiesController(ICityInfoRepository cityInfoRepository,IMapper mapper)
     {
             _cityInfoRepository = cityInfoRepository ?? throw new ArgumentNullException(nameof(cityInfoRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
-
         
 
         // private readonly CitiesDataStore _citiesDataStore;
@@ -27,7 +26,8 @@ public class CitiesController : ControllerBase
         // }
 
         // [HttpGet("api/cities")]
-        public async Task<ActionResult<IEnumerable<CityWithoutPointOfInterestDto>>> GetCities([FromQuery] string? name) // not neccessirly [fromquery] u can also assign name property on from query attribute [FromQuery(Name = "filterorname")]
+        public async Task<ActionResult<IEnumerable<CityWithoutPointOfInterestDto>>> 
+        GetCities([FromQuery] string? name,[FromQuery] string? searchQuery,[FromQuery] int pageNumber=1,[FromQuery] int pageSize = 10) // not neccessirly [fromquery] u can also assign name property on from query attribute [FromQuery(Name = "filterorname")]
          //public JsonResult GetCities()
     {
         // return new JsonResult(new List<object>{
@@ -38,8 +38,12 @@ public class CitiesController : ControllerBase
       //  return new JsonResult(CitiesDataStore.Current.Cities);
 
       //return Ok(_citiesDataStore.Cities);
+      if(pageSize > maxCitiesPageSize)
+      {
+        pageSize = maxCitiesPageSize;
+      }
 
-      var cityEntites = await _cityInfoRepository.GetCitiesAsync(name);
+      var cityEntites = await _cityInfoRepository.GetCitiesAsync(name,searchQuery,pageNumber,pageSize);
 
       // var results = new List<CityWithoutPointOfInterestDto>();
       // foreach(var cityEntity in cityEntites)
