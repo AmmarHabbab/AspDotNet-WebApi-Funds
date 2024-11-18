@@ -8,7 +8,7 @@ using WebApi1.Services;
 namespace WebApi1.Controllers{
 
 [ApiController]
-//[Authorize]
+[Authorize]
 [ApiVersion("1.0")]
 [ApiVersion("2.0")]
 [Route("api/v{version:apiVersion}/cities")] //api/[controller]

@@ -7,7 +7,7 @@ using WebApi1.Services;
 
 namespace WebApi1.Controllers{
     [Route("api/v{version:apiVersion}/cities/{cityId}/pointsofinterest")]
-   // [Authorize(Policy = "MustBeFromAntwerp")] 
+    [Authorize(Policy = "MustBeFromAntwerp")] 
     [ApiVersion("2.0")]
     [ApiController]
 public class PointsOfInterestController : ControllerBase

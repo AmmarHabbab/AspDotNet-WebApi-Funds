@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 Log.Logger = new LoggerConfiguration() // configuring serilog
    .MinimumLevel.Debug()
@@ -34,7 +35,22 @@ builder.Services.AddSwaggerGen(setupAction=>{
     var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory,xmlCommentsFile);
 
     setupAction.IncludeXmlComments(xmlCommentsFullPath);
-});
+
+    setupAction.AddSecurityDefinition("CityInfoApiBearerAuth",new OpenApiSecurityScheme(){
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        Description = "Input a Valid token to access this API"
+    });
+
+    setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement{
+        {
+        new OpenApiSecurityScheme{
+            Reference = new OpenApiReference {
+                Type = ReferenceType.SecurityScheme,
+                Id = "CityInfoApiBearerAuth"}
+            }, new List<string>()}
+        });
+    });
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>(); // add a service to the container so that we can inject it in other parts of our code that will be used to get the content type of a file 
 
 //builder.Services.AddTransient<LocalMailService>();
