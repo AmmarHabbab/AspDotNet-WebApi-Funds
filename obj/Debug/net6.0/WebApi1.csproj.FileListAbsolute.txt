@@ -81,3 +81,4 @@ E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dl
 E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\Asp\WebApi1\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+E:\Asp\WebApi1\bin\Debug\net6.0\WebApi1.xml

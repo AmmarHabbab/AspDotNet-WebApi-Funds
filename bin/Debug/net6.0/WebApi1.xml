@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi1</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi1.Controllers.CitiesController.GetCity(System.Int32,System.Boolean)">
+            <summary>
+            Get a city by id
+            </summary>
+            <param name="id">the id of the city to get</param>
+            <param name="includePointsOfInterest">whether or not ot include the points of interest</param>
+            <returns>An IActionResult</returns>
+        </member>
+        <member name="T:WebApi1.Models.CityWithoutPointOfInterestDto">
+            <summary>
+            A DTO for a city without points of interest
+            </summary>
+        </member>
+        <member name="P:WebApi1.Models.CityWithoutPointOfInterestDto.Id">
+            <summary>
+            the id of the city
+            </summary>
+        </member>
+        <member name="P:WebApi1.Models.CityWithoutPointOfInterestDto.Name">
+            <summary>
+            the name of the city
+            </summary>
+        </member>
+        <member name="P:WebApi1.Models.CityWithoutPointOfInterestDto.Description">
+            <summary>
+            the description of the city
+            </summary>
+        </member>
+    </members>
+</doc>

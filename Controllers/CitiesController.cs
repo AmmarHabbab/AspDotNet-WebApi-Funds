@@ -67,6 +67,13 @@ public class CitiesController : ControllerBase
      return Ok(_mapper.Map<IEnumerable<CityWithoutPointOfInterestDto>>(cityEntites));// automapper is much better than mapping ourselves like above
     }
 
+
+    /// <summary>
+    /// Get a city by id
+    /// </summary>
+    /// <param name="id">the id of the city to get</param>
+    /// <param name="includePointsOfInterest">whether or not ot include the points of interest</param>
+    /// <returns>An IActionResult</returns>
    [HttpGet("{id}")]
     public async Task<IActionResult> GetCity(int id,bool includePointsOfInterest = false) // public JsonResult GetCity(int id)
     {
