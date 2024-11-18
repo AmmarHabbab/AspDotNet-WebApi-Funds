@@ -4887,3 +4887,44 @@ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP meth
 2024-11-18 02:46:11.905 +03:00 [DBG] Connection id "0HN87C4VDCCJM" stopped.
 2024-11-18 02:46:11.905 +03:00 [DBG] Connection id "0HN87C4VDCCJM" received FIN.
 2024-11-18 02:46:11.919 +03:00 [DBG] Connection id "0HN87C4VDCCJM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-18 03:00:30.625 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-18 03:00:31.990 +03:00 [DBG] Hosting starting
+2024-11-18 03:00:32.034 +03:00 [INF] User profile is available. Using 'C:\Users\DaRK1AnGE1-\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-18 03:00:32.051 +03:00 [DBG] Reading data from file 'C:\Users\DaRK1AnGE1-\AppData\Local\ASP.NET\DataProtection-Keys\key-7aaf1ab6-3338-4bbe-824d-412c9ce49ea3.xml'.
+2024-11-18 03:00:32.094 +03:00 [DBG] Found key {7aaf1ab6-3338-4bbe-824d-412c9ce49ea3}.
+2024-11-18 03:00:32.150 +03:00 [DBG] Considering key {7aaf1ab6-3338-4bbe-824d-412c9ce49ea3} with expiration date 2025-02-15 20:08:59Z as default key.
+2024-11-18 03:00:32.167 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-18 03:00:32.195 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-11-18 03:00:32.200 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-18 03:00:32.242 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-11-18 03:00:32.257 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-11-18 03:00:32.276 +03:00 [DBG] Using key {7aaf1ab6-3338-4bbe-824d-412c9ce49ea3} as the default key.
+2024-11-18 03:00:32.281 +03:00 [DBG] Key ring with default key {7aaf1ab6-3338-4bbe-824d-412c9ce49ea3} was loaded during application startup.
+2024-11-18 03:00:32.664 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 9E758B43FC1DB07235D03E669781821F9B436A79)
+2024-11-18 03:00:32.899 +03:00 [INF] Now listening on: https://localhost:7117
+2024-11-18 03:00:32.912 +03:00 [INF] Now listening on: http://localhost:5211
+2024-11-18 03:00:32.916 +03:00 [DBG] Loaded hosting startup assembly WebApi1
+2024-11-18 03:00:32.928 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-18 03:00:32.937 +03:00 [INF] Hosting environment: Development
+2024-11-18 03:00:32.943 +03:00 [INF] Content root path: E:\Asp\WebApi1\
+2024-11-18 03:00:32.948 +03:00 [DBG] Hosting started
+2024-11-18 03:02:43.198 +03:00 [DBG] Connection id "0HN87CH9KJ5ED" accepted.
+2024-11-18 03:02:43.203 +03:00 [DBG] Connection id "0HN87CH9KJ5ED" started.
+2024-11-18 03:02:43.325 +03:00 [DBG] Connection 0HN87CH9KJ5ED established using the following protocol: "Tls12"
+2024-11-18 03:02:43.421 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7117/swagger/index.html - -
+2024-11-18 03:02:43.424 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-18 03:02:43.558 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7117/swagger/index.html - - - 200 - text/html;charset=utf-8 142.1252ms
+2024-11-18 03:02:47.588 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7117/swagger/v1/swagger.json - -
+2024-11-18 03:02:47.922 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - WebApi1.Controllers.CitiesController.GetCities (WebApi1). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-11-18 03:02:48.018 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7117/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 430.0740ms
+2024-11-18 03:02:49.751 +03:00 [DBG] Connection id "0HN87CH9KJ5ED" received FIN.
+2024-11-18 03:02:49.765 +03:00 [DBG] Connection id "0HN87CH9KJ5ED" is closed. The last processed stream ID was 3.
+2024-11-18 03:02:49.772 +03:00 [DBG] Connection id "0HN87CH9KJ5ED" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-18 03:02:49.787 +03:00 [DBG] Connection id "0HN87CH9KJ5ED" stopped.
